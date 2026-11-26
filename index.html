@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <base target="_top">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sbdav_Store</title>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sbdav_Store</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f8fafc;
+    }
+    .app-frame {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      border: 0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <iframe style="width: 100%; height: 100vh;" scrolling="yes" src="https://script.google.com/macros/s/AKfycbzXL9IhnORL3BKwino7q5JBTEI__AhLNhXhA5gqGfDZFX2yuFF3GDKe23WBc9b18DGZ/exec" frameborder="0"></iframe>
+  <iframe
+    id="appFrame"
+    class="app-frame"
+    src="https://script.google.com/macros/s/AKfycbzXL9IhnORL3BKwino7q5JBTEI__AhLNhXhA5gqGfDZFX2yuFF3GDKe23WBc9b18DGZ/exec"
+    allow="clipboard-read; clipboard-write"
+    title="Sbdav_Store">
+  </iframe>
+
+  <script>
+    // ส่งต่อ Query Parameters (เช่น ?page=admin) จาก URL ของ GitHub Pages เข้าไปยัง Google Apps Script อัตโนมัติ
+    (function () {
+      var search = window.location.search;
+      if (search) {
+        var frame = document.getElementById('appFrame');
+        var baseUrl = frame.src.split('?')[0];
+        frame.src = baseUrl + search;
+      }
+    })();
+  </script>
 </body>
 </html>
